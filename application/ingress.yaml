@@ -12,7 +12,6 @@ spec:
         paths:
           - path: "/app"
             pathType: Prefix
-            backend:
               service:
                 name:  web-svc
                 port:
