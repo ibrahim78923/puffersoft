@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: application-ingress
   namespace: app
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.frontend.passHostHeader: "true"
+    traefik.backend.loadbalancer.sticky: "true"
 
 spec:
   ingressClassName: treafik-traefik
