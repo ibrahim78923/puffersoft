@@ -9,8 +9,7 @@ metadata:
 spec:
   ingressClassName: treafik-traefik
   rules:
-   - host: www.dreggystore.com
-     http:
+   - http:
         paths:
           - path: /app
             pathType: Exact
