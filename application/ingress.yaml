@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
-  name: application-ingress
-  namespace: app
-
+  name: ingress-1
+  namespace: frontend 
 spec:
   ingressClassName: traefik
   rules:
@@ -16,6 +15,6 @@ spec:
             pathType: Exact
             backend:
               service:
-                name:  web-svc
+                name:  websvc
                 port:
                   number: 80
