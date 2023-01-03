@@ -12,7 +12,8 @@ spec:
         paths:
           - path: /app
             pathType: Prefix
-            service:
+            backend:
+              service:
                 name:  web-svc
                 port:
                   number: 80
