@@ -7,10 +7,10 @@ metadata:
 spec:
   ingressClassName: treafik-traefik
   rules:
-   - host: www.dreggystore.com
+   - host: "www.dreggystore.com"
      http:
         paths:
-          - path: /app
+          - path: "/app"
             pathType: Prefix
             backend:
               service:
