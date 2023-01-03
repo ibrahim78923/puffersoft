@@ -11,26 +11,17 @@ status: {}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: "2023-01-03T10:15:09Z"
-  generation: 1
+  creationTimestamp: null
   labels:
     app: web
   name: web
   namespace: app
-  resourceVersion: "5723"
-  uid: b5c1c89a-5768-4825-ab13-fc0921f403b3
 spec:
-  progressDeadlineSeconds: 600
   replicas: 5
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: web
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -39,17 +30,10 @@ spec:
     spec:
       containers:
       - image: nginx
-        imagePullPolicy: Always
         name: nginx
         resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
 status: {}
+}
 
 ---
 
