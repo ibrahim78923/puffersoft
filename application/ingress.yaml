@@ -5,14 +5,13 @@ metadata:
   namespace: app
   annotations:
     traefik.backend.loadbalancer.sticky: "true"
-
 spec:
   ingressClassName: treafik-traefik
   rules:
   - host: www.dreggystore.com
     http:
         paths:
-          - path: /app
+          - path: "/app"
             pathType: Exact
             backend:
               service:
