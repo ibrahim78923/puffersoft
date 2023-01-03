@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
   name: ingress-1
-  namespace: frontend 
+  namespace: default
 spec:
   ingressClassName: traefik
   rules:
