@@ -3,18 +3,17 @@ kind: Ingress
 metadata:
   name: application-ingress
   namespace: app
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+
 spec:
   ingressClassName: treafik-traefik
   rules:
-  - host: www.dreggystore.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web-svc
-            port:
-              number: 80
+    - host: ww.dreggystore.com
+      http:
+        paths:
+          - path: /app
+            pathType: Exact
+            backend:
+              service:
+                name:  web-svc
+                port:
+                  number: 80
