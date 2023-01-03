@@ -4,7 +4,6 @@ metadata:
   name: application-ingress
   namespace: app
   annotations:
-    traefik.frontend.passHostHeader: "true"
     traefik.backend.loadbalancer.sticky: "true"
 
 spec:
