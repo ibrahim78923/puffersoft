@@ -12,7 +12,7 @@ spec:
     - host: www.dreggystore.com
       http:
         paths:
-          - path: /app
+          - path: /demo
             pathType: Prefix
             backend:
               service:
