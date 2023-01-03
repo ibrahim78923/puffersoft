@@ -12,8 +12,8 @@ spec:
     - host: www.dreggystore.com
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /demo
+            pathType: Exact
             backend:
               service:
                 name:  web-svc
