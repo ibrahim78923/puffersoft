@@ -11,13 +11,6 @@ spec:
     - host: www.dreggystore.com
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name:  web-svc
-                port:
-                  number: 80
           - path: /app
             pathType: Prefix
             backend:
