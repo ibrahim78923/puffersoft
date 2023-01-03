@@ -11,7 +11,7 @@ spec:
      http:
         paths:
           - path: /app
-            pathType: Prefix
+            pathType: Exact
             backend:
               service:
                 name:  web-svc
