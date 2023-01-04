@@ -5,19 +5,12 @@ metadata:
   namespace: frontend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    ingressClassName: nginx
 spec:
-rules:
+  ingressClassName: nginx
+  rules:
   - host: www.dreggystore.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: websvc
-            port:
-              number: 80
       - path: /web
         pathType: Prefix
         backend:
