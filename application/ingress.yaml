@@ -10,7 +10,7 @@ metadata:
   tls:
   - hosts:
     - www.dreggystore.com
-    secretName: dreggystore-example-tls
+    secretName: default-token-qv6lc
 rules:
   - host: www.dreggystore.com
     http:
