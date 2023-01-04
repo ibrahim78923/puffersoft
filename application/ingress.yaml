@@ -10,11 +10,18 @@ metadata:
   tls:
   - hosts:
     - www.dreggystore.com
-    secretName: default-token-qv6lc
+    secretName: quickstart-example-tls
 rules:
   - host: www.dreggystore.com
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: websvc
+            port:
+              number: 80
       - path: /web
         pathType: Prefix
         backend:
