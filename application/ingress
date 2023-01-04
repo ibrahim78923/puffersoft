@@ -9,13 +9,6 @@ spec:
     - host: www.dreggystore.com
       http:
         paths:
-          - path: /
-            pathType: Exact
-            backend:
-              service:
-                name:  websvc
-                port:
-                  number: 80
           - path: /web
             pathType: Exact
             backend:
@@ -30,3 +23,4 @@ spec:
                 name:  appsvc
                 port:
                   number: 80
+                 
