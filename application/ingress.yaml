@@ -5,9 +5,13 @@ metadata:
   namespace: frontend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
+ spec:
   ingressClassName: nginx
-  rules:
+  tls:
+  - hosts:
+    - www.dreggystore.com
+    secretName: dreggystore-example-tls
+rules:
   - host: www.dreggystore.com
     http:
       paths:
