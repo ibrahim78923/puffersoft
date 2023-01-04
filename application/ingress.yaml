@@ -3,14 +3,8 @@ kind: Ingress
 metadata:
   name: ingress-1
   namespace: frontend
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - www.dreggystore.com
-    secretName: letsencrypt-staging
   rules:
   - host: www.dreggystore.com
     http:
