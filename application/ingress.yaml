@@ -1,36 +1,37 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-1
+  name: ingress-01
   namespace: frontend
   annotations:
-    kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: frontend-issuer
+    cert-manager.io/cluster-issuer: clusterissuer-1
 spec:
-  ingressClassName: traefik
+  tls:
+  - hosts:
+    - www.dreggystore.com
+    secretName: letsencrypt-staging
   rules:
-    - host: www.dreggystore.com
-      http:
-        paths:
-        - path: /web
-          pathType: Prefix
-          backend:
-            service:
-              name: websvc
-              port:
-                number: 80
-        - path: /app
-          pathType: Prefix
-          backend:
-            service:
-              name: appsvc
-              port:
-                number: 80
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: websvc
-              port:
-                number: 80
-
+  - host: www.dreggystore.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: websvc
+            port:
+              number: 80
+      - path: /web
+        pathType: Prefix
+        backend:
+          service:
+            name: websvc
+            port:
+              number: 80
+      - path: /app
+        pathType: Prefix
+        backend:
+          service:
+            name: appsvc
+            port:
+              number: 80
