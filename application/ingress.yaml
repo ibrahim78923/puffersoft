@@ -3,13 +3,7 @@ kind: Ingress
 metadata:
   name: ingress-01
   namespace: frontend
-  annotations:
-    cert-manager.io/cluster-issuer: clusterissuer-1
 spec:
-  tls:
-  - hosts:
-    - www.dreggystore.com
-    secretName: my-secret
   rules:
   - host: www.dreggystore.com
     http:
