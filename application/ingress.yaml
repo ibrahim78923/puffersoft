@@ -26,4 +26,11 @@ spec:
               name: appsvc
               port:
                 number: 80
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: websvc
+              port:
+                number: 80
 
