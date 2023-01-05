@@ -5,7 +5,7 @@ metadata:
   namespace: frontend
   annotations:
     kubernetes.io/ingress.class: traefik
-
+    cert-manager.io/cluster-issuer: frontend-issuer
 spec:
   ingressClassName: traefik
   rules:
@@ -33,4 +33,7 @@ spec:
               name: websvc
               port:
                 number: 80
-
+  tls: 
+  - hosts:
+    - www.dreggystore.com
+    secretName: secrets-1
