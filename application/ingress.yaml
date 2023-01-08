@@ -10,14 +10,14 @@ spec:
       http:
         paths:
           - path: /web
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name:  websvc
                 port:
                   number: 80
           - path: /app
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name:  appsvc
