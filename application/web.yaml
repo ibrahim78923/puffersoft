@@ -5,7 +5,7 @@ metadata:
   labels:
     app: web
   name: web
-  namespace: frontend
+  namespace: web
 spec:
   replicas: 1
   selector:
@@ -33,7 +33,7 @@ metadata:
   labels:
     app: web
   name: websvc
-  namespace: frontend
+  namespace: web
 spec:
   ports:
   - port: 80
@@ -44,3 +44,40 @@ spec:
   type: ClusterIP
 status:
   loadBalancer: {}
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: mw-admin
+  namespace: web
+spec:
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+      - /web
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-1
+  namespace: web
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: web-mw-admin@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: www.dreggystore.com
+      http:
+        paths:
+          - path: /web
+            pathType: Prefix
+            backend:
+              service:
+                name:  websvc
+                port:
+                  number: 80
