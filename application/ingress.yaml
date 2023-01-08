@@ -22,7 +22,7 @@ metadata:
   namespace: frontend
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.middlewares: ingress-mw-admin@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: frontend-mw-admin@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
