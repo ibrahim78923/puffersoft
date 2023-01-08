@@ -65,7 +65,6 @@ metadata:
   name: ingress-1
   namespace: app
   annotations:
-    kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.middlewares: app-mw-admin@kubernetescrd
 spec:
   ingressClassName: traefik
