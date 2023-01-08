@@ -4,6 +4,7 @@ metadata:
   name: ingress-1
   namespace: frontend
 spec:
+  ingressClassName: traefik
   rules:
     - host: www.dreggystore.com
       http:
