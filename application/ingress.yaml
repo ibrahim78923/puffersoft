@@ -1,3 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: mw-admin
+  namespace: frontend
+spec:
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+      - /web
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+      - /app
+
+---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
