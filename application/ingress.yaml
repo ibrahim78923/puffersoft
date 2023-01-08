@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-1
+  namespace: frontend
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: www.dreggystore.com
+      http:
+        paths:
+          - path: /web
+            pathType: Exact
+            backend:
+              service:
+                name:  websvc
+                port:
+                  number: 80
+          - path: /app
+            pathType: Exact
+            backend:
+              service:
+                name:  appsvc
+                port:
+                  number: 80
